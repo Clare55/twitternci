@@ -51,6 +51,23 @@ sqoop import --connect jdbc:mysql://127.0.0.1/twitterStaging
 
 Creating Views in HIVE (MapReduce)
 ---------------------------------------------------------------------------------
+Step 5
+
+In HIVE there were problems with the date format so first created a new table with a subset of variables and recasting the date.
+
+CREATE TABLE tweetsbydateeverything as SELECT id, id_str, retweet_count, retweeted, cast(created_at AS DATE), in_reply_to_status_id, lang, user_id_str, user_lang, utc_offset, friends_count, country_code, place_type, place_lat, place_lon, lat, lon, hour
+
+Number of unique Tweets by country by date by hour
+CREATE VIEW vnumberbycountry AS SELECT count(id_str), country_code, created_at, hour FROM tweetsbydateeverything GROUP BY country_code, created_at, hour;
+Counts numbers of tweets by country by date, by hour 
+
+Then exported this as a CSV file
+hive -e "select * from vnumberbycountry" | sed 's/[\t]/,/g' > numberbycountry.csv
+
+The number of unique Tweeters by country by date by hour;
+CREATE VIEW vnumberoftweetersbycountry AS SELECT count(DISTINCT(user_id_str), country_code, created_at, hour FROM tweetsbydateeverything GROUP BY country, created_at, hour;
+Then exported this as a CSV file
+hive -e "select * from vnumberoftweetersbycountry" | sed 's/[\t]/,/g' > distincttweetersbycountry.csv
 
 
 
