@@ -34,6 +34,7 @@ Step 4
    
    Then use SQOOP import
    - note 'password' should be replaced with your MySQL password.
+  
     sqoop import --connect jdbc:mysql://localhost/twitterStaging? --username root--password password --driver com.mysql.cj.jdbc.Driver  --table tweets --hbase-table tweets
 --column-family user_info --hbase-row-key id -m 1
 
