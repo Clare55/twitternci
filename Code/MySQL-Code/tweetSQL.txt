@@ -1,0 +1,17 @@
+create database twitterStaging2;
+use twitterStaging2;
+CREATE TABLE tweets
+(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+retweet_count int, id_str VARCHAR(32), 
+source LONGTEXT, retweeted INT, 
+created_at DATETIME,  in_reply_to_status_id VARCHAR(32), 
+lang VARCHAR (10), user_id_str VARCHAR(32), 
+geo_enabled INT(15), user_created_at DATE,
+statuses_count INT, followers_count INT, favourites_count INT,
+time_zone VARCHAR(100), user_lang VARCHAR (10),  
+utc_offset TEXT, friends_count INT, country_code VARCHAR(20),
+place_type VARCHAR (20), place_lat VARCHAR(32), place_lon VARCHAR(32), 
+lat VARCHAR(25), lon VARCHAR(25), date DATE, hour INT);
+LOAD DATA LOCAL INFILE '/home/hduser/TwitterProject/tweetsNov-168.csv' INTO TABLE tweets FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r';
+LOAD DATA LOCAL INFILE '/home/hduser/TwitterProject/tweetsNov-170.csv' INTO TABLE tweets FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r';
+
