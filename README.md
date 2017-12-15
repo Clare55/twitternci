@@ -26,19 +26,15 @@ File: 'tweetSQL.txt'
 
 
 Importing into HBase
-----
+---------------------------------------------------------------------------------
 Step 4
    In HBase create an empty table in HBase with the column family 'user_info'.
    
    create 'tweets', {NAME=>'user_info'}
    
-   Then 
-
-
-
-sqoop
-import --connect jdbc:mysql://localhost/twitterStaging? --username
-root--password password --driver com.mysql.cj.jdbc.Driver  --table tweetsByLang --hbase-table tweets
+   Then use SQOOP import
+   - note 'password' shoudl be replaced with your MySQL password.
+    sqoop import --connect jdbc:mysql://localhost/twitterStaging? --username root--password password --driver com.mysql.cj.jdbc.Driver  --table tweetsByLang --hbase-table tweets
 --column-family user_info --hbase-row-key id -m 1
 
 
