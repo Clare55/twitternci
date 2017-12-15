@@ -27,7 +27,7 @@ File: 'tweetSQL.txt'
 
 Importing into HBase
 ---------------------------------------------------------------------------------
-Step 4
+Step 4a
    In HBase create an empty table in HBase with the column family 'user_info'.
    
    create 'tweets', {NAME=>'user_info'}
@@ -42,7 +42,7 @@ sqoop import --connect jdbc:mysql://localhost/twitterStaging
 
 Importing into HIVE
 ---------------------------------------------------------------------------------
-Step 4 b
+Step 4b
 Then use SQOOP import   - note 'password' should be replaced with your MySQL password.
 
 sqoop import --connect jdbc:mysql://127.0.0.1/twitterStaging
