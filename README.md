@@ -12,6 +12,7 @@ Step 1
   File: 1 - GetTweets.R
 
 Step 2
-  Convert JSON files to CSV files
+  Convert large JSON files to CSV files
+  File: 2 - CleanTweets.R
 
 Step 3
