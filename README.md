@@ -35,11 +35,22 @@ Step 4
    Then use SQOOP import
    - note 'password' should be replaced with your MySQL password.
   
-    sqoop import --connect jdbc:mysql://localhost/twitterStaging? --username root--password password --driver com.mysql.cj.jdbc.Driver  --table tweets --hbase-table tweets
+sqoop import --connect jdbc:mysql://localhost/twitterStaging
+--username root--password password --driver com.mysql.cj.jdbc.Driver  --table tweets --hbase-table tweets
 --column-family user_info --hbase-row-key id -m 1
 
 
+Importing into HIVE
+---------------------------------------------------------------------------------
+Step 4 b
+Then use SQOOP import   - note 'password' should be replaced with your MySQL password.
 
+sqoop import --connect jdbc:mysql://127.0.0.1/twitterStaging
+--username root --password password
+--driver com.mysql.cj.jdbc.Driver --table tweets --hive-import -m 1
+
+Creating Views in HIVE (MapReduce)
+---------------------------------------------------------------------------------
 
 
 
