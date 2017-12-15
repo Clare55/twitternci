@@ -33,8 +33,8 @@ Step 4
    create 'tweets', {NAME=>'user_info'}
    
    Then use SQOOP import
-   - note 'password' shoudl be replaced with your MySQL password.
-    sqoop import --connect jdbc:mysql://localhost/twitterStaging? --username root--password password --driver com.mysql.cj.jdbc.Driver  --table tweetsByLang --hbase-table tweets
+   - note 'password' should be replaced with your MySQL password.
+    sqoop import --connect jdbc:mysql://localhost/twitterStaging? --username root--password password --driver com.mysql.cj.jdbc.Driver  --table tweets --hbase-table tweets
 --column-family user_info --hbase-row-key id -m 1
 
 
