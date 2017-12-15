@@ -19,6 +19,8 @@ Step 2
 Importing into MySQL
 ---------------------------------------------------------------------------------
 Step 3 
+  In UBuntu in the home directory run:
+  mysql -u root -ppassword < tweetSQL.text - note 'password' shoudl be replaced with your MySQL password.
   
 
 
